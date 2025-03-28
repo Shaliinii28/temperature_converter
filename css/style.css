@@ -1,0 +1,122 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: #FAFAD7;
+	font-family: cambria;
+	color: #000;
+	background-position: cover;
+	background-repeat: no-repeat;
+}
+
+h1 {
+	align-items:center;
+	justify-content: space-between;
+	text-align: center;
+	font-size: 6vmin;
+	color: #71016A;
+	font-family: cambria;
+	text-transform: uppercase;
+	margin-top: 8vh;
+}
+
+.line {
+	align-items:center;
+	justify-content: space-between;
+	text-align: center;
+	height: 20px;
+	font-size: 5.5vmin;
+	color: #2D008F;
+}
+
+.form {
+	width: 50%;
+	height: 60vh;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 9vh;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-shadow: 1px 1px 10px 2px rgba(240, 100, 100, 0.9);
+	border-radius: 20px;
+	background-color: white;
+	padding-top: 3%;
+	transition: 0.5s;
+}
+
+.form:hover {
+	box-shadow: 1px 1px 10px 2px rgba(100, 100, 200, 0.9);
+}
+
+h2 {
+	font-size: 4vmin;
+	align-items: left;
+	justify-content: left;
+	text-align: left;
+	margin-left: 60px;
+}
+
+#temperature {
+	height: 40px;
+	width: 250px;
+	padding: 10px;
+	align-items: center;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-family: cambria;
+	margin-right: 10px;
+	border-radius: 10px;
+	border-color: magenta;
+}
+
+#select1 {
+	height: 40px;
+	width: 250px;
+	padding: 0px;
+	align-items: center;
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-family: cambria;
+	margin-left: 10px;
+	border-radius: 10px;
+	border-color: magenta;
+}
+
+#submit {
+	height: 40px;
+	width: 125px;
+	font-size: 18px;
+	font-family: cambria;
+	border-radius: 10px;
+	background-color: #71016A;
+	color: white;
+	transition: 0.7s;
+}
+
+#submit:hover {
+	background-color: magenta;
+	color: black;
+}
+
+#result {
+	align-items: left;
+	justify-content: space-between;
+	text-align: center;
+	margin-left: 34%;
+	padding-top: 5px;
+	width: 250px;
+	height: 40px;
+	font-size: 25px;
+	font-family: cambria;
+	border-radius: 10px;
+	box-shadow: 0px 0px 0px 1px magenta;
+	margin-bottom: 50px;
+}
+
+.row {
+	justify-content: space-between;
+}
+	
