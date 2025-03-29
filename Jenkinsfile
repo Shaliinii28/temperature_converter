@@ -3,18 +3,29 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the project...'
+                echo 'Building the static site...'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Testing the site (skipped for static HTML)...'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
+                script {
+                    def site = docker.build("temperature-converter:${env.BUILD_ID}")
+                    site.run('-p 8081:80')
+                }
             }
+        }
+    }
+    post {
+        success {
+            echo 'Site deployed at http://localhost:8081'
+        }
+        failure {
+            echo 'Deployment failed.'
         }
     }
 }
