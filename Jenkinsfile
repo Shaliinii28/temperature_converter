@@ -1,14 +1,14 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
+  agent any
 
-  }
   stages {
     stage('Build') {
       steps {
         echo 'Building the static site...'
+        script {
+          // Build the Docker image with a unique tag
+          docker.build("temperature-converter:${env.BUILD_ID}")
+        }
       }
     }
 
@@ -20,23 +20,22 @@ pipeline {
 
     stage('Deploy') {
       steps {
+        echo 'Deploying the site...'
         script {
+          // Build again and run the container
           def site = docker.build("temperature-converter:${env.BUILD_ID}")
-          site.run('-p 8081:80')
+          site.run('-d -p 8081:80')
         }
-
       }
     }
-
   }
+
   post {
     success {
-      echo 'Site deployed at http://localhost:8081'
+      echo '✅ Site deployed successfully at: http://localhost:8081'
     }
-
     failure {
-      echo 'Deployment failed.'
+      echo '❌ Deployment failed.'
     }
-
   }
 }
