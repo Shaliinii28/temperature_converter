@@ -1,10 +1,10 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'Dockerfile'  // ensure this file is named correctly in your repo root
+      filename 'Dockerfile'
     }
-  }
 
+  }
   stages {
     stage('Build') {
       steps {
@@ -24,16 +24,19 @@ pipeline {
           def site = docker.build("temperature-converter:${env.BUILD_ID}")
           site.run('-p 8081:80')
         }
+
       }
     }
-  }
 
+  }
   post {
     success {
       echo 'Site deployed at http://localhost:8081'
     }
+
     failure {
       echo 'Deployment failed.'
     }
+
   }
 }
